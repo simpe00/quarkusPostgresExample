@@ -1,18 +1,15 @@
-package org.acme;
+package org.acme.integration;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
 import org.acme.fruit.Fruit;
-import org.acme.gift.Gift;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
+
 import java.util.Set;
 
 import static io.restassured.RestAssured.given;
