@@ -1,4 +1,4 @@
-package org.acme.rest;
+package de.simpe.rest;
 
 import lombok.extern.slf4j.Slf4j;
 

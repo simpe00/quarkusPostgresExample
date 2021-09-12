@@ -1,9 +1,9 @@
-package org.acme.integration;
+package de.simpe.integration;
 
+import de.simpe.fruit.Fruit;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
-import org.acme.fruit.Fruit;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package org.acme.gift;
+package de.simpe.gift;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Data;

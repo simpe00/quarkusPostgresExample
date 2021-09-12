@@ -1,6 +1,6 @@
-package org.acme.rest;
+package de.simpe.rest;
 
-import org.acme.fruit.Fruit;
+import de.simpe.fruit.Fruit;
 
 import java.util.Collections;
 import java.util.LinkedHashMap;

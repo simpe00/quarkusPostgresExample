@@ -1,8 +1,8 @@
-package org.acme.rest;
+package de.simpe.rest;
 
+import de.simpe.gift.Gift;
 import lombok.extern.slf4j.Slf4j;
-import org.acme.gift.Gift;
-import org.acme.gift.SantaClausService;
+import de.simpe.gift.SantaClausService;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

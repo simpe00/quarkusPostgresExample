@@ -1,8 +1,8 @@
-package org.acme.rest;
+package de.simpe.rest;
 
+import de.simpe.stock.HistoricalStockEntity;
+import de.simpe.stock.StockRepository;
 import lombok.AllArgsConstructor;
-import org.acme.stock.HistoricalStockEntity;
-import org.acme.stock.StockRepository;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;

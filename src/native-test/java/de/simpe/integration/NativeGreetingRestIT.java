@@ -1,7 +1,6 @@
-package org.acme.integration;
+package de.simpe.integration;
 
 import io.quarkus.test.junit.NativeImageTest;
-import org.acme.integration.GreetingRestTest;
 
 @NativeImageTest
 public class NativeGreetingRestIT extends GreetingRestTest {

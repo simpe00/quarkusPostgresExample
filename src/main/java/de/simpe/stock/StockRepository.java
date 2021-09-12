@@ -1,4 +1,4 @@
-package org.acme.stock;
+package de.simpe.stock;
 
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
 

@@ -1,4 +1,4 @@
-package org.acme.fruit;
+package de.simpe.fruit;
 
 import lombok.Data;
 

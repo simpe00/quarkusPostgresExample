@@ -1,4 +1,4 @@
-package org.acme.gift;
+package de.simpe.gift;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,7 +1,7 @@
-package org.acme.unit;
+package de.simpe.unit;
 
+import de.simpe.fruit.Fruit;
 import io.quarkus.test.junit.QuarkusTest;
-import org.acme.fruit.Fruit;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
