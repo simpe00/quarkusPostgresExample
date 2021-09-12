@@ -1,9 +1,12 @@
 package org.acme.fruit;
 
+import lombok.Data;
+
+@Data
 public class Fruit {
 
-    public String name;
-    public String description;
+    private String name;
+    private String description;
 
     public Fruit() {
     }
@@ -17,10 +20,7 @@ public class Fruit {
     public boolean equals(Object obj) {
         if (!(obj instanceof Fruit)){ return false;}
         if (obj == this){ return true;}
-        if (this.name.equals(((Fruit) obj).name) && this.description.equals(((Fruit) obj).description)){
-            return true;
-        }
-        return false;
+        return (this.name.equals(((Fruit) obj).name) && this.description.equals(((Fruit) obj).description));
     }
     
     @Override

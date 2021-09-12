@@ -34,7 +34,7 @@ public class FruitRest {
 
     @DELETE
     public Set<Fruit> delete(Fruit fruit) {
-        fruits.removeIf(existingFruit -> existingFruit.name.contentEquals(fruit.name));
+        fruits.removeIf(existingFruit -> existingFruit.getName().contentEquals(fruit.getName()));
         return fruits;
     }
 }
