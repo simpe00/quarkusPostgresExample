@@ -22,10 +22,9 @@ public class Fruit {
         }
         return false;
     }
-
-    // TODO understand hashCode!
+    
     @Override
     public int hashCode(){
-        return name.length(); //for simplicity
+        return name.hashCode() * description.hashCode();
     }
 }
