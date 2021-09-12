@@ -1,4 +1,4 @@
-package org.acme.fruit;
+package org.acme.rest;
 
 import org.acme.fruit.Fruit;
 
@@ -11,12 +11,12 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-@Path("/fruits")
-public class FruitResource {
+@Path("/rest/fruits")
+public class FruitRest {
 
     private Set<Fruit> fruits = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
 
-    public FruitResource() {
+    public FruitRest() {
         fruits.add(new Fruit("Apple", "Winter fruit"));
         fruits.add(new Fruit("Pineapple", "Tropical fruit"));
     }

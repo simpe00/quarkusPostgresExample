@@ -13,4 +13,19 @@ public class Fruit {
         this.description = description;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Fruit)){ return false;}
+        if (obj == this){ return true;}
+        if (this.name.equals(((Fruit) obj).name) && this.description.equals(((Fruit) obj).description)){
+            return true;
+        }
+        return false;
+    }
+
+    // TODO understand hashCode!
+    @Override
+    public int hashCode(){
+        return name.length(); //for simplicity
+    }
 }

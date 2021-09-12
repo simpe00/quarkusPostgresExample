@@ -9,19 +9,22 @@ import javax.persistence.*;
 @Entity
 @JsonPropertyOrder({"id", "name"})
 @NamedQuery(name = "Gift.findAll", query = "SELECT c FROM Gift c ORDER BY c.name")
+@SequenceGenerator(name = "giftSeq", sequenceName = "gift_id_seq", allocationSize = 1, initialValue = 1)
 public class Gift {
 
     public Gift(){}
 
-    public Gift(Long id, String name){
+    public Gift(Long id, String name, double price){
         this.id = id;
         this.name = name;
+        this.price = price;
     }
 
     @Id
-    @SequenceGenerator(name = "giftSeq", sequenceName = "gift_id_seq", allocationSize = 1, initialValue = 1)
     @GeneratedValue(generator = "giftSeq")
     private Long id;
+
     private String name;
+    private double price;
 
 }

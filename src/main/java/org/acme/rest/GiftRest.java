@@ -19,14 +19,6 @@ public class GiftRest {
     @Inject
     SantaClausService santaClausService;
 
-    @GET
-    @Path("/sendGift")
-    @Produces(MediaType.TEXT_PLAIN)
-    public String sendGift() {
-        log.info("send Gift");
-        santaClausService.createGift("testGift");
-        return "Gift was sent";
-    }
 
     @POST
     @Path("/saveGift")
@@ -41,7 +33,7 @@ public class GiftRest {
     @Produces(MediaType.APPLICATION_JSON)
     public List<Gift> getGift() {
         log.info("get Gift");
-        List<Gift> giftData = santaClausService.getGift();
+        List<Gift> giftData = santaClausService.getGifts();
         log.info("received gifts: {}", giftData.size());
         return giftData;
     }

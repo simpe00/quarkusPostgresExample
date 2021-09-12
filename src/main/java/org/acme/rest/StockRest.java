@@ -11,7 +11,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-@Path("/stock")
+@Path("/rest/stock")
 @AllArgsConstructor(onConstructor = @__(@Inject))
 public class StockRest {
 

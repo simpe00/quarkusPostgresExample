@@ -32,8 +32,7 @@ public class SantaClausService {
         return em.merge(gift);
     }
 
-//    @Transactional
-    public List<Gift> getGift() {
+    public List<Gift> getGifts() {
         return em.createNamedQuery("Gift.findAll", Gift.class).getResultList();
     }
 }

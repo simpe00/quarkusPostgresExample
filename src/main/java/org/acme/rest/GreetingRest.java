@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Slf4j
-@Path("/default")
+@Path("/rest")
 public class GreetingRest {
 
     @GET
