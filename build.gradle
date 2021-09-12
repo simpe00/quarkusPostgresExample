@@ -23,6 +23,8 @@ dependencies {
     implementation 'io.quarkus:quarkus-jdbc-postgresql'
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
+    testImplementation 'org.assertj:assertj-core:3.20.2'
+    testImplementation 'io.quarkus:quarkus-test-h2'
 
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"

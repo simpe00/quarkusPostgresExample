@@ -29,7 +29,7 @@ public class GiftRest {
     }
 
     @POST
-    @Path("/savedGift")
+    @Path("/saveGift")
     @Produces(MediaType.APPLICATION_JSON)
     public Gift add(Gift gift) {
         log.info("save Gift");
