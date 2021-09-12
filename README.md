@@ -1,3 +1,7 @@
+# example project
+
+[![Actions Status](https://github.com/simpe00/quarkusPostgresExample/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/simpe00/quarkusPostgresExample/actions)
+
 # quarkus-tutorial Project
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
