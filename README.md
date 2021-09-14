@@ -2,11 +2,23 @@
 
 [![Actions Status](https://github.com/simpe00/quarkusPostgresExample/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/simpe00/quarkusPostgresExample/actions)
 
-# quarkus-tutorial Project
+This is a showcase project.
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Table of Contents
+=================
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+* [example project](#example-project)
+* [Table of Contents](#table-of-contents)
+  * [Running the application in dev mode](#running-the-application-in-dev-mode)
+  * [Packaging and running the application](#packaging-and-running-the-application)
+  * [Creating a native executable](#creating-a-native-executable)
+  * [Start production mode with docker-compose](#start-production-mode-with-docker-compose)
+  * [Start production mode with minikube](#start-production-mode-with-minikube)
+  * [Guids &amp; miscellanies](#guids--miscellanies)
+    * [commands](#commands)
+    * [links](#links)
+  * [TODO for future](#todo-for-future)
+
 
 ## Running the application in dev mode
 
@@ -15,7 +27,7 @@ You can run your application in dev mode that enables live coding using:
 ./gradlew quarkusDev
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+> **_NOTE:_** for develop - **quarkusDev** - only the database is needed. So just use the docker-compose.db.yml file or another postgres.
 
 ## Packaging and running the application
 
@@ -23,15 +35,6 @@ The application can be packaged using:
 ```shell script
 ./gradlew build
 ```
-It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
-```
-
-The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
 
 ## Creating a native executable
 
@@ -40,79 +43,73 @@ You can create a native executable using:
 ./gradlew build -Dquarkus.package.type=native
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./build/quarkus-tutorial-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
-
-## Related Guides
-
-- RESTEasy JAX-RS ([guide](https://quarkus.io/guides/rest-json)): REST endpoint framework implementing JAX-RS and more
-
-## Provided Code
-
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
-
-
-## Additional Guid
-
-This is a showcase project.
-
-### start production mode with docker-compose
+## Start production mode with docker-compose
 
 First, take sure that you already have generated a jar for the docker build.
 
-build jar with gradle
+build the container
 ````shell script
-./gradlew build
+docker-compose -f docker-compose.yml build --no-cache
 ````
 
-Now you can bring up the containers.
-
-docker-compose up
+start both containers
 ````shell script
 docker-compose -f docker-compose.db.yml -f docker-compose.yml up -d   
 ````
-> **_NOTE:_** for develop (quarkusDev) only the database is needed. So just use the docker-compose.db.yml file. 
 
 > **_NOTE:_** in this example, the swagger-ui is always available at http://localhost:8080/q/swagger-ui .
 
+## Start production mode with minikube
+
+For using the project with minikube.
 
 minikube yml via kompose (just as a template)
 ````commandline
 kompose convert -f docker-compose.db.yml -f docker-compose.yml --out minikube.template.yaml
 ````
 
-deyploy service to minikube
+deploy service to minikube
 ````commandline
 kubectl apply -f minikube.yaml
 ````
 
-The endpoint for the swagger-ui is: http://[IPAddress]:30080/q/swagger-ui/
+The endpoint for the swagger-ui is: http://**{IPAddress}**:30080/q/swagger-ui/
+
+## Guids & miscellanies
+
+#### commands
 
 get all pods
 ````commandline
 kubectl get pods -A
 ````
 
-Links:
+#### links
 
-https://quarkus.io/guides/rest-json
+[quarkus - Rest json](https://quarkus.io/guides/rest-json)
 
-https://www.coding-daddy.xyz/node/45
+[quarkus PostgreSQL Example](https://www.coding-daddy.xyz/node/45)
 
-https://quarkus.io/guides/reactive-sql-clients
+[reactive sql clients](https://quarkus.io/guides/reactive-sql-clients)
+
+[testing with in-memory databases](https://quarkus.io/guides/datasource#in-memory-databases)
 
 [example for postgres](https://www.techtalksteve.com/blog/2-first-microservice-with-quarkus/)
 
 [quarkus - postgres - ORM Panache](https://quarkus.io/guides/hibernate-orm-panache)
 
-rsync -r /mnt/c/Projekte/quarkus-tutorial/quarkus-tutorial/ ubuntu@192.168.178.94:/home/ubuntu/quarkus-tutorial/ --delete --exclude "SSH"
+[implement health check](https://quarkus.io/guides/smallrye-health)
+
+[example kubernetes config](https://github.com/OpenLiberty/guide-kubernetes-microprofile-health/blob/b3f1effc1206582474f373fc5b6eacb31470b023/finish/kubernetes.yaml)
+
+
+> **_NOTE:_** the **ReadinessCheck** for the datasource is allready implemented by the **quarkus-smallrye-health** [datasource-health-check](https://quarkus.io/guides/datasource#datasource-health-check)
+
+
+## TODO for future
+
+* [quarkus - Kubernetes Extension](https://quarkus.pro/guides/deploying-to-kubernetes.html)
+  * automatically provide a kubernetes.yml
+
+* [infrastructure as code ](https://www.terraform.io/)
+  * shall provide the infrastructure needed, e.g. docker, minikube etc.
